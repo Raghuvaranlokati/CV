@@ -1,0 +1,235 @@
+PROJECT_TASKS.txt
+=================
+
+Project Title:
+AI-Based Smart Exam Proctoring & Suspicious Activity Detection System
+
+
+1. Project Overview
+-------------------
+Online exams face serious challenges such as cheating, impersonation,
+and lack of scalable human monitoring. This project aims to build an
+AI-powered computer vision system that automatically monitors a student
+during an online exam and flags suspicious activities.
+
+The system will process webcam or recorded video input and generate a
+final integrity report based on detected behaviors.
+
+
+2. Project Objectives
+---------------------
+- Detect presence and absence of candidate face
+- Detect multiple persons in the camera frame
+- Detect forbidden objects such as mobile phones or books
+- Analyze behavior over time instead of single frames
+- Generate a structured suspicious activity report
+- Build a simple web interface to demonstrate the system
+
+
+3. Tools & Technologies
+-----------------------
+- Python
+- OpenCV
+- NumPy, Pandas
+- Deep Learning Model (YOLO / SSD / Faster R-CNN)
+- Flask or FastAPI
+- Git & GitHub
+
+
+4. Dataset & Input
+------------------
+- Webcam feed OR recorded exam video
+- Public datasets for:
+  - face detection
+  - person detection
+  - mobile phone detection
+- Students may also collect small custom videos for testing
+
+
+5. Project Folder Structure (Must Follow)
+-----------------------------------------
+smart_exam_proctoring/
+│
+├── data/
+│   ├── raw_videos/
+│   ├── extracted_frames/
+│   ├── annotations/
+│
+├── notebooks/
+│   ├── 01_video_exploration.ipynb
+│   ├── 02_detection_testing.ipynb
+│   ├── 03_behavior_analysis.ipynb
+│
+├── src/
+│   ├── frame_extractor.py
+│   ├── face_detector.py
+│   ├── object_detector.py
+│   ├── behavior_logic.py
+│   ├── report_generator.py
+│
+├── app/
+│   ├── app.py
+│   ├── templates/
+│   ├── static/
+│
+├── outputs/
+│   ├── flagged_frames/
+│   ├── reports/
+│
+├── requirements.txt
+├── README.md
+└── PROJECT_TASKS.txt
+
+
+6. Task 1: Video Handling & Frame Extraction
+--------------------------------------------
+- Accept video input (webcam or file)
+- Extract frames at a fixed FPS (e.g., 1–5 frames/sec)
+- Store frames efficiently
+- Handle long videos without memory crash
+
+Deliverables:
+- frame_extractor.py
+- Sample extracted frames
+
+
+7. Task 2: Face Detection
+-------------------------
+- Detect face in each frame
+- Track continuous presence of face
+- Detect and log face absence duration
+
+Rules Example:
+- Face missing for more than 5 seconds → suspicious event
+
+Deliverables:
+- Working face detection module
+- Face presence logs with timestamps
+
+
+8. Task 3: Person Count Detection
+---------------------------------
+- Detect number of persons in each frame
+- Flag frames with more than one person
+
+Rules Example:
+- More than one person detected → critical violation
+
+Deliverables:
+- Person detection results
+- Logs with timestamps and counts
+
+
+9. Task 4: Forbidden Object Detection
+-------------------------------------
+- Detect objects such as:
+  - mobile phone
+  - book
+- Draw bounding boxes and labels
+- Log detection confidence and time
+
+Deliverables:
+- Object detection visualization
+- Detection logs
+
+
+10. Task 5: Behavior Analysis Logic
+----------------------------------
+Implement rule-based intelligence that analyzes events over time.
+
+Examples:
+- Mobile detected multiple times → high risk
+- Face missing repeatedly → medium risk
+- Multiple persons → critical risk
+
+Combine all events to compute:
+- total suspicion score
+- final risk level (LOW / MEDIUM / HIGH)
+
+Deliverables:
+- behavior_logic.py
+- Clearly documented rules
+
+
+11. Task 6: Report Generation
+-----------------------------
+Generate a final exam integrity report containing:
+- detected suspicious events
+- timestamps
+- severity levels
+- final risk score
+
+Save report in:
+- JSON format
+- human-readable text format
+
+Deliverables:
+- report_generator.py
+- Sample report files
+
+
+12. Task 7: Visualization & Evidence Storage
+--------------------------------------------
+- Save flagged frames with bounding boxes
+- Organize frames by event type
+- Use these as evidence in the report
+
+Deliverables:
+- flagged frame images
+- structured output folders
+
+
+13. Task 8: Web Application
+---------------------------
+Build a simple web interface that:
+- accepts video upload
+- processes the video
+- displays risk score and report
+- shows flagged frames
+
+Deliverables:
+- Running Flask/FastAPI app
+- Screenshots or demo video
+
+
+14. Task 9: Error Handling & Robustness
+---------------------------------------
+- Handle empty or corrupt videos
+- Handle low-light or low-resolution input
+- Log errors gracefully
+
+Deliverables:
+- Stable and fault-tolerant pipeline
+
+
+15. Task 10: Documentation & GitHub Readiness
+---------------------------------------------
+README.md must include:
+- problem statement
+- system architecture
+- detection logic
+- challenges faced
+- limitations
+- future improvements
+
+Push the complete project to GitHub.
+
+
+16. Resume Description (Must Use)
+---------------------------------
+"Developed an AI-based smart exam proctoring system using computer vision
+to detect suspicious activities such as multiple persons, mobile usage,
+and face absence, and generated automated exam integrity reports."
+
+
+17. Optional Advanced Enhancements
+----------------------------------
+- Head pose estimation
+- Eye gaze tracking
+- Live webcam monitoring
+- Dockerization
+- Cloud deployment
+
+
+End of Project Tasks
+====================
