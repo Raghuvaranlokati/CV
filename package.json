@@ -1,0 +1,11 @@
+{
+  "name": "cv-root",
+  "private": true,
+  "scripts": {
+    "install": "cd Project/gesture-synth && npm install",
+    "build": "cd Project/gesture-synth && npm run build"
+  },
+  "dependencies": {
+    "vite": "^8.1.3"
+  }
+}
